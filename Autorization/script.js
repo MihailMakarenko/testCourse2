@@ -122,8 +122,8 @@ function goHome() {
 }
 
 function back() {
-  window.history.back();
- location.reload();
+  location.href = window.history.back();
+ 
 }
 
 function TranslateElement() {
