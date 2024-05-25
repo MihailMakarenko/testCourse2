@@ -311,6 +311,9 @@ document.addEventListener("DOMContentLoaded", function () {
       .getElementById("blackOver-two")
       .classList.toggle("blackOver-two-button");
   });
+
+  // document.getElementById("footer-map-containers").innerHTML =
+  //   '<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A00c2887efb6b65d15c7dccac852499c093e7159467700975991d4ca6626e15fd&amp;width=320&amp;height=320&amp;lang=ru_RU&amp;scroll=true"></script>';
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -418,3 +421,25 @@ function fadeOut(element, duration = 300, callback = null) {
     }
   }, 16);
 }
+
+const mapScriptUrl =
+  "https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A00c2887efb6b65d15c7dccac852499c093e7159467700975991d4ca6626e15fd&width=320&height=320&lang=ru_RU&scroll=true";
+
+// Получаем ссылку на кнопку и контейнер для карты
+const showMapBtn = document.getElementById("map-button");
+const mapContainer = document.getElementById("footer-map-containers");
+
+// Добавляем обработчик события клика на кнопку
+showMapBtn.addEventListener("click", () => {
+  mapContainer.innerHTML = "";
+  // Создаем новый скрипт и добавляем его в DOM
+  const mapScript = document.createElement("script");
+  mapScript.type = "text/javascript";
+  mapScript.charset = "utf-8";
+  mapScript.async = true;
+  mapScript.src = mapScriptUrl;
+  mapContainer.appendChild(mapScript);
+
+  // // Скрываем кнопку после ее нажатия
+  // showMapBtn.style.display = "none";
+});
