@@ -10,112 +10,69 @@ document.getElementById("logIn").onclick = function (e) {
   let userArray = [];
   let isSearchUser = false;
   userArray = JSON.parse(localStorage.getItem("users"));
-  // if (userArray != null && userArray.length == 0) {
-  //   userArray = arrayUsers;
-  // } else {
-  //   if (userArray != null && userArray.length != 0) {
-  //     console.log(userArray);
-  //     if (login.value != "" && password.value != "") {
-  //       isSearchUser = userArray.some(
-  //         (user) =>
-  //           (user.phone == login.value ||
-  //             user.email == login.value ||
-  //             user.nickname == login.value) &&
-  //           user.password == password.value
-  //       );
-  //       if (isSearchUser) {
-  //         if (document.referrer != null) {
-  //           if (
-  //             document.referrer.substring(23, document.referrer.length) ==
-  //             "Autorization.html"
-  //           ) {
-  //             localStorage.setItem(
-  //               "current-user",
-  //               JSON.stringify(
-  //                 userArray[
-  //                   userArray.findIndex(
-  //                     (user) =>
-  //                       (user.phone == login.value ||
-  //                         user.email == login.value ||
-  //                         user.nickname == login.value) &&
-  //                       user.password == password.value
-  //                   )
-  //                 ]
-  //               )
-  //             );
-  //             window.location.href = "index.html";
-  //           } else {
-  //             localStorage.setItem(
-  //               "current-user",
-  //               JSON.stringify(
-  //                 userArray[
-  //                   userArray.findIndex(
-  //                     (user) =>
-  //                       (user.phone == login.value ||
-  //                         user.email == login.value ||
-  //                         user.nickname == login.value) &&
-  //                       user.password == password.value
-  //                   )
-  //                 ]
-  //               )
-  //             );
-  //              console.log(window.history.back());
-
-  //           }
-  //         } else {
-  //           window.location.href = "index.html";
-  //         }
-  //       } else {
-  //         document.getElementById("myModal").style.display = "block";
-  //       }
-  //     }
-  //   }
-  // }
-
-  // Проверяем, есть ли массив userArray и не пустой ли он
-  if (userArray === null || userArray.length === 0) {
-    // Если массив пустой, то назначаем ему значение массива arrayUsers
+  if (userArray != null && userArray.length == 0) {
     userArray = arrayUsers;
   } else {
-    // Если массив не пустой, то выводим его в консоль
-    console.log(userArray);
-
-    // Получаем значения полей логина и пароля
-    const { value: login } = document.getElementById("login");
-    const { value: password } = document.getElementById("password");
-
-    // Проверяем, заполнены ли поля логина и пароля
-    if (login !== "" && password !== "") {
-      // Ищем пользователя в массиве userArray
-      const isSearchUser = userArray.some(
-        (user) =>
-          (user.phone === login ||
-            user.email === login ||
-            user.nickname === login) &&
-          user.password === password
-      );
-
-      if (isSearchUser) {
-        // Если пользователь найден, то сохраняем его данные в localStorage
-        const currentUser = userArray.find(
+    if (userArray != null && userArray.length != 0) {
+      console.log(userArray);
+      if (login.value != "" && password.value != "") {
+        isSearchUser = userArray.some(
           (user) =>
-            (user.phone === login ||
-              user.email === login ||
-              user.nickname === login) &&
-            user.password === password
+            (user.phone == login.value ||
+              user.email == login.value ||
+              user.nickname == login.value) &&
+            user.password == password.value
         );
-        localStorage.setItem("current-user", JSON.stringify(currentUser));
-
-        // Если предыдущей страницей была Autorization.html, то переходим на index.html
-        if (document.referrer.endsWith("Autorization.html")) {
-          window.location.href = "index.html";
+        if (isSearchUser) {
+          if (document.referrer != null) {
+            if (
+              document.referrer.substring(23, document.referrer.length) ==
+              "Autorization.html"
+            ) {
+              localStorage.setItem(
+                "current-user",
+                JSON.stringify(
+                  userArray[
+                    userArray.findIndex(
+                      (user) =>
+                        (user.phone == login.value ||
+                          user.email == login.value ||
+                          user.nickname == login.value) &&
+                        user.password == password.value
+                    )
+                  ]
+                )
+              );
+              console.log("1");
+              // localStorage.setItem("history", window.referrer);
+              window.location.href = "index.html";
+            } else {
+              localStorage.setItem(
+                "current-user",
+                JSON.stringify(
+                  userArray[
+                    userArray.findIndex(
+                      (user) =>
+                        (user.phone == login.value ||
+                          user.email == login.value ||
+                          user.nickname == login.value) &&
+                        user.password == password.value
+                    )
+                  ]
+                )
+              );
+              // console.log(document.referrer);
+              window.location.href = document.referrer;
+              // localStorage.setItem(window.history.back());
+              // console.log(window.history.back());
+            }
+          } else {
+            localStorage.setItem("history", window.referrer);
+            // window.location.href = "index.html";
+          }
         } else {
-          // Иначе возвращаемся на предыдущую страницу
-          back();
+          document.getElementById("myModal").style.display = "block";
         }
-      } else {
-        // Если пользователь не найден, то отображаем модальное окно
-        document.getElementById("myModal").style.display = "block";
       }
     }
   }
@@ -167,11 +124,14 @@ document.getElementById("button-theme").onclick = function (e) {
 };
 
 function goHome() {
+  // console.log("3");
+  // localStorage.setItem("history", window.referrer);
   window.location.href = "index.html";
 }
 
 function back() {
-  localStorage.setItem("history", window.history.state);
+  console.log("4");
+  // localStorage.setItem("history", window.referrer);
   window.location.href = window.referrer;
 }
 
