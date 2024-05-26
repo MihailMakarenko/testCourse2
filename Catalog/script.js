@@ -187,7 +187,7 @@ window.onload = async function (e) {
     console.log(currentUser.iconSrc);
     if (currentUser.iconSrc == undefined) {
       document.querySelector(".header-person-icon").children[0].src =
-        "/Registration/PersonIcon/default-icon.png";
+        "Registration/PersonIcon/default-icon.png";
     } else {
       document.querySelector(".header-person-icon").children[0].src =
         currentUser.iconSrc;

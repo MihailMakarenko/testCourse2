@@ -59,7 +59,8 @@ document.getElementById("logIn").onclick = function (e) {
                   ]
                 )
               );
-              history.back();
+              // console.log(window.history.back());
+              window.location.href = window.referrer;
             }
           } else {
             window.location.href = "index.html";
@@ -122,6 +123,7 @@ function goHome() {
 }
 
 function back() {
+  localStorage.setItem("history", window.history.state);
   window.location.href = window.history.state;
 }
 
