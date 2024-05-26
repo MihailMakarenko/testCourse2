@@ -111,7 +111,7 @@ document.getElementById("logIn").onclick = function (e) {
           window.location.href = "index.html";
         } else {
           // Иначе возвращаемся на предыдущую страницу
-          window.location.href = window.referrer;
+          back();
         }
       } else {
         // Если пользователь не найден, то отображаем модальное окно
@@ -172,7 +172,7 @@ function goHome() {
 
 function back() {
   localStorage.setItem("history", window.history.state);
-  window.location.href = window.history.state;
+  window.location.href = window.referrer;
 }
 
 function TranslateElement() {
