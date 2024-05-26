@@ -167,6 +167,16 @@ birthdayInput.onkeyup = function (e) {
   );
 };
 
+birthdayInput.onchange = function (e) {
+  let isBerthdayValid = validateBirthday(birthdayInput.value);
+  updateFieldError(
+    birthdayInput,
+    isBerthdayValid,
+    "Вам должно быть 16 лет",
+    "You must be 16 years old"
+  );
+};
+
 // Проверка ввода имени
 function isValidName(name) {
   // Проверяем, что имя состоит только из букв (английских и русских)

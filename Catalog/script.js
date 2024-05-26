@@ -31,13 +31,13 @@ async function getCards() {
 function generateHTMLBlocks(dataArray) {
   console.log(dataArray);
   let promotion = "Акция";
-  let basket = "В корзину";
+  let basket = "Добавить";
   let cancel = "Отмена";
-  let goBasket = "Перейти в корзину";
+  let goBasket = "В корзину";
   let currenLanguage = window.location.hash.substring(1);
   if (currenLanguage == "en") {
     promotion = "Promotion";
-    basket = "To Basket";
+    basket = "Append";
     cancel = "Cancel";
     goBasket = "Go to basket";
   }
