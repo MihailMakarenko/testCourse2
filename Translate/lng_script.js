@@ -156,7 +156,7 @@ const LanguagesArr = {
   },
 
   "I-agree-text": {
-    ru: "Текс пользовательского соглашния",
+    ru: "Текст пользовательского соглашния",
     en: "Text user agree",
   },
 
@@ -978,8 +978,8 @@ const LanguagesArr = {
     ru: "Сбросить настройки",
     en: "Reset options",
   },
-  "": {
-    ru: "",
-    en: "",
+  "do-you-want": {
+    ru: "Хотите продолжить под своим аккаунтом?",
+    en: "Do you want to continue using your account?",
   },
 };

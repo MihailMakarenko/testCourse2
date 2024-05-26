@@ -532,7 +532,7 @@ document.getElementById("button-continue").onclick = function (e) {
   window.location.href = "index.html";
 };
 
-document.getElementById("button-exit").onclick = function (e) {
+document.getElementById("button-exit-two").onclick = function (e) {
   window.history.back();
   window.history.back();
 };

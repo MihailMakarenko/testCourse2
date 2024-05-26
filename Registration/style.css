@@ -320,16 +320,17 @@ color: white;
   
   transform: translateX( -50%);
   width: 200px;
-  height: 200px;
+  height: 227px;
   background-color: aqua;
   border-radius: 40px;
   /* display: none; */
+
 }
 
 #finish-registration button{
   display: block;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 12px;
 }
 
 #finish-modal{
@@ -399,4 +400,9 @@ color: white;
 #myLink{
   color: blue;
   text-decoration: underline;
+}
+
+.lng-do-you-want{
+  padding: 10px;
+      font-size: 18px;
 }

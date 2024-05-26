@@ -89,7 +89,7 @@ window.onload = async function (e) {
       ": " + currentUser.phone;
     if (currentUser.iconSrc == undefined) {
       document.getElementById("avatar").src =
-        "/Registration/PersonIcon/default-icon.png";
+        "Registration/PersonIcon/default-icon.png";
     } else {
       document.getElementById("avatar").src = currentUser.iconSrc;
     }
