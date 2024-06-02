@@ -24,7 +24,7 @@ main {
   margin: auto;
 }
 
-header section {
+.header-section {
   row-gap: 20px;
   flex-wrap: wrap;
   padding: 10px 0;
